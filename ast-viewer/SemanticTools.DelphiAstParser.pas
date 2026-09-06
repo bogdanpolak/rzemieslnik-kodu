@@ -22,6 +22,11 @@ type
       const AFileName: string;
       out ASyntaxTree: TSyntaxNode
       ): boolean;
+    function TryParseStream(
+      AStream: TStream;
+      const AFileName: string;
+      out ASyntaxTree: TSyntaxNode
+      ): boolean;
     function GetFailureMessage: string;
   end;
 
@@ -132,6 +137,11 @@ type
       const AFileName: string;
       out ASyntaxTree: TSyntaxNode
       ): boolean;
+    function TryParseStream(
+      AStream: TStream;
+      const AFileName: string;
+      out ASyntaxTree: TSyntaxNode
+      ): boolean;
     function GetFailureMessage: string;
   end;
 
@@ -153,30 +163,53 @@ begin
   Result := FFailureMessage;
 end;
 
-function TAstParser.TryParse(
+function TAstParser.TryParseStream(
+  AStream: TStream;
   const AFileName: string;
   out ASyntaxTree: TSyntaxNode
   ): boolean;
 var
   Builder: TPasSyntaxTreeBuilder;
+begin
+  FFailureMessage := '';
+  ASyntaxTree := nil;
+  try
+    if AStream = nil then
+      raise EArgumentNilException.Create('AStream');
+
+    AStream.Position := 0;
+
+    Builder := TPasSyntaxTreeBuilder.Create;
+    try
+      Builder.InitDefinesDefinedByCompiler;
+      Builder.IncludeHandler := TDelphiAstIncludeHandler.Create(FFileRepository);
+      Builder.Lexer.Lexer.Buffer.FileName := TPath.GetFullPath(AFileName);
+      ASyntaxTree := Builder.Run(AStream);
+      Result := True;
+    finally
+      Builder.Free;
+    end;
+  except
+    on E: Exception do
+    begin
+      Result := False;
+      FFailureMessage := E.Message;
+    end;
+  end;
+end;
+
+function TAstParser.TryParse(
+  const AFileName: string;
+  out ASyntaxTree: TSyntaxNode
+  ): boolean;
+var
   Stream: TStream;
 begin
   FFailureMessage := '';
   try
     Stream := FFileRepository.OpenRead(AFileName);
     try
-      Stream.Position := 0;
-
-      Builder := TPasSyntaxTreeBuilder.Create;
-      try
-        Builder.InitDefinesDefinedByCompiler;
-        Builder.IncludeHandler := TDelphiAstIncludeHandler.Create(FFileRepository);
-        Builder.Lexer.Lexer.Buffer.FileName := TPath.GetFullPath(AFileName);
-        ASyntaxTree := Builder.Run(Stream);
-        Result := True;
-      finally
-        Builder.Free;
-      end;
+      Result := TryParseStream(Stream, AFileName, ASyntaxTree);
     finally
       Stream.Free;
     end;
