@@ -1,0 +1,8 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [3:1..10:1]
+    ntUses [5:1..10:1]
+      ntUnit [6:3] anName=System.SysUtils
+      ntUnit [7:3] anName=System.Classes
+      ntUnit [8:3] anName=Vcl.Forms
+  ntImplementation [10:1..12:1]
+--- comments (0) ---

@@ -1,0 +1,18 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [2:1..11:1]
+    ntTypeSection [3:1]
+      ntTypeDecl [4:3..10:6] anName=TPerson
+        ntType [4:13] anType=class
+          ntPrivate [5:3] anVisibility=true
+            ntField [6:5]
+              ntName [6:5] value="FName"
+              ntType [6:12] anName=string
+          ntPublic [7:3] anVisibility=true
+            ntMethod [8:5..9:5] anKind=constructor anName=Create
+              ntParameters [8:23]
+                ntParameter [8:30] anKind=const
+                  ntName [8:30] value="AName"
+                  ntType [8:37] anName=string
+            ntMethod [9:5..10:3] anKind=procedure anName=SayHello
+  ntImplementation [11:1..12:1]
+--- comments (0) ---

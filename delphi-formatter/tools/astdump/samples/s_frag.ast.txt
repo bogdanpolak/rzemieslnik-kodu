@@ -1,0 +1,14 @@
+ntUnit [1:1]
+  ntMethod [1:1..7:1] anName=Test anKind=procedure
+    ntVariables [2:1]
+      ntVariable [3:3]
+        ntName [3:3] value="A"
+        ntType [3:6] anName=Integer
+    ntStatements [4:1..6:4]
+      ntAssign [5:3]
+        ntLHS [5:3]
+          ntIdentifier [5:3] anName=A
+        ntRHS [5:8]
+          ntExpression [5:8]
+            ntLiteral [5:8] value="10" anType=numeric
+--- comments (0) ---

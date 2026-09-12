@@ -1,0 +1,25 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [2:1..3:1]
+  ntImplementation [3:1..12:1]
+    ntMethod [4:1..12:1] anName=Test anKind=procedure
+      ntVariables [5:1]
+        ntVariable [6:3]
+          ntName [6:3] value="A"
+          ntType [6:6] anName=Integer
+        ntVariable [7:3]
+          ntName [7:3] value="B"
+          ntType [7:6] anName=string
+      ntStatements [8:1..11:4]
+        ntAssign [9:3]
+          ntLHS [9:3]
+            ntIdentifier [9:3] anName=A
+          ntRHS [9:8]
+            ntExpression [9:8]
+              ntLiteral [9:8] value="10" anType=numeric
+        ntAssign [10:3]
+          ntLHS [10:3]
+            ntIdentifier [10:3] anName=B
+          ntRHS [10:8]
+            ntExpression [10:8]
+              ntLiteral [10:15] value="Hello" anType=string
+--- comments (0) ---

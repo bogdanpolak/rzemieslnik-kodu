@@ -1,0 +1,268 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [2:1..27:1]
+    ntUses [3:1..4:1]
+      ntUnit [3:6] anName=A.B
+      ntUnit [3:11] anName=C
+    ntConstants [4:1]
+      ntConstant [5:3]
+        ntName [5:3] value="Pi2"
+        ntValue [5:9]
+          ntExpression [5:9]
+            ntMul [5:14]
+              ntLiteral [5:9] value="3.14" anType=numeric
+              ntLiteral [5:16] value="2" anType=numeric
+      ntConstant [6:3]
+        ntName [6:3] value="Hex"
+        ntValue [6:9]
+          ntExpression [6:9]
+            ntLiteral [6:9] value="$FF" anType=numeric
+      ntConstant [7:3]
+        ntName [7:3] value="S"
+        ntValue [7:7]
+          ntExpression [7:7]
+            ntAdd [7:15]
+              ntLiteral [7:15] value="It's" anType=string
+              ntLiteral [7:23] value="#13#10" anType=string
+    ntTypeSection [8:1]
+      ntTypeDecl [9:3..9:45] anName=TProc
+        ntParameters [9:33]
+          ntParameter [9:34]
+            ntName [9:34] value="A"
+            ntType [9:37] anName=Integer
+      ntTypeDecl [10:3..10:32] anName=TArr
+        ntType [10:10] anType=array
+          ntBounds [10:15]
+            ntDimension [10:16]
+              ntExpression [10:16]
+                ntLiteral [10:16] value="0" anType=numeric
+              ntExpression [10:19]
+                ntLiteral [10:19] value="9" anType=numeric
+          ntType [10:25] anName=Integer
+      ntTypeDecl [11:3..11:25] anName=TDyn
+        ntType [11:10] anType=array
+          ntBounds [11:16]
+          ntType [11:19] anName=string
+      ntTypeDecl [12:3..12:27] anName=TEnum
+        ntType [12:11] anName=enum
+          ntIdentifier [12:12] anName=eOne
+          ntIdentifier [12:18] anName=eTwo
+          ntExpression [12:25]
+            ntLiteral [12:25] value="5" anType=numeric
+      ntTypeDecl [13:3..13:22] anName=TSet
+        ntType [13:10] anType=set
+          ntType [13:17] anName=TEnum
+      ntTypeDecl [14:3..14:18] anName=PInt
+        ntType [14:10] anType=pointer
+          ntType [14:11] anName=Integer
+      ntTypeDecl [15:3..15:24] anName=TAlias
+        ntType [15:17] anName=Integer
+      ntTypeDecl [16:3..16:26] anName=TCls
+        ntType [16:10] anType=classof
+          ntType [16:19] anName=TObject
+      ntTypeDecl [17:3..20:6] anName=IFoo
+        ntType [17:10] anType=interface
+          ntType [17:20] anName=IInterface
+          ntGuid [18:5]
+            ntLiteral [18:46] value="{A41FF9F3-3FE0-4B59-BE61-C88B7F2A8466}" anType=string
+          ntMethod [19:5..20:3] anKind=function anName=Get
+            ntReturnType [19:19]
+              ntType [19:19] anName=Integer
+      ntTypeDecl [21:3..23:6] anName=TRec
+        ntType [21:10] anType=record
+          ntMethod [22:5..23:3] anClass=true anName=Add
+            ntParameters [22:23]
+              ntParameter [22:24]
+                ntName [22:24] value="A"
+                ntType [22:30] anName=TRec
+              ntParameter [22:27]
+                ntName [22:27] value="B"
+                ntType [22:30] anName=TRec
+            ntReturnType [22:37]
+              ntType [22:37] anName=TRec
+      ntTypeDecl [24:3..26:6] anName=TStrHelper
+        ntType [24:16] anType=record
+          ntHelper [24:23]
+            ntType [24:34] anName=string
+          ntMethod [25:5..26:3] anKind=function anName=Len
+            ntReturnType [25:19]
+              ntType [25:19] anName=Integer
+  ntImplementation [27:1..46:1]
+    ntMethod [28:1..46:1] anKind=function anName=Calc
+      ntParameters [28:14]
+        ntParameter [28:21] anKind=const
+          ntName [28:21] value="X"
+          ntType [28:27] anName=Integer
+        ntParameter [28:24] anKind=const
+          ntName [28:24] value="Y"
+          ntType [28:27] anName=Integer
+        ntParameter [28:36]
+          ntName [28:36] value="Z"
+          ntType [28:39] anName=Double
+          ntExpression [28:48]
+            ntLiteral [28:48] value="1.5" anType=numeric
+      ntReturnType [28:54]
+        ntType [28:54] anName=Double
+      ntVariables [29:1]
+        ntVariable [30:3]
+          ntName [30:3] value="R"
+          ntType [30:6] anName=Integer
+      ntStatements [31:1..45:4]
+        ntAssign [32:3]
+          ntLHS [32:3]
+            ntIdentifier [32:3] anName=R
+          ntRHS [32:8]
+            ntExpression [32:8]
+              ntSub [32:20]
+                ntMul [32:16]
+                  ntExpressions [32:9]
+                    ntExpression [32:9]
+                      ntAdd [32:11]
+                        ntIdentifier [32:9] anName=X
+                        ntIdentifier [32:13] anName=Y
+                  ntIdentifier [32:18] anName=Z
+                ntUnaryMinus [32:22]
+                  ntIdentifier [32:23] anName=X
+        ntAssign [33:3]
+          ntLHS [33:3]
+            ntIdentifier [33:3] anName=R
+          ntRHS [33:8]
+            ntExpression [33:8]
+              ntAdd [33:10]
+                ntIdentifier [33:8] anName=X
+                ntExpressions [33:13]
+                  ntExpression [33:13]
+                    ntMul [33:15]
+                      ntIdentifier [33:13] anName=Y
+                      ntIdentifier [33:17] anName=Z
+        ntAssign [34:3]
+          ntLHS [34:3]
+            ntIdentifier [34:3] anName=R
+          ntRHS [34:8]
+            ntExpression [34:8]
+              ntCall [34:8]
+                ntIdentifier [34:8] anName=Foo
+                ntExpressions [34:12]
+                  ntExpression [34:12]
+                    ntLiteral [34:12] value="1" anType=numeric
+                  ntExpression [34:15]
+                    ntCall [34:15]
+                      ntIdentifier [34:15] anName=Bar
+                      ntExpressions [34:19]
+                        ntExpression [34:19]
+                          ntLiteral [34:19] value="2" anType=numeric
+                        ntExpression [34:22]
+                          ntLiteral [34:25] value="a" anType=string
+                  ntExpression [34:28]
+                    ntSet [34:28]
+                      ntElement [34:29]
+                        ntExpression [34:29]
+                          ntLiteral [34:29] value="1" anType=numeric
+                      ntElement [34:32]
+                        ntExpression [34:32]
+                          ntLiteral [34:32] value="2" anType=numeric
+                        ntExpression [34:35]
+                          ntLiteral [34:35] value="3" anType=numeric
+        ntAssign [35:3]
+          ntLHS [35:3]
+            ntIdentifier [35:3] anName=R
+          ntRHS [35:8]
+            ntExpression [35:8]
+              ntDot [35:11]
+                ntIdentifier [35:8] anName=Obj
+                ntDot [35:20]
+                  ntIndexed [35:17]
+                    ntExpression [35:18]
+                      ntLiteral [35:18] value="2" anType=numeric
+                    ntIdentifier [35:12] anName=Items
+                  ntIdentifier [35:21] anName=Name
+        ntAssign [36:3]
+          ntLHS [36:3]
+            ntIdentifier [36:3] anName=R
+          ntRHS [36:8]
+            ntExpression [36:8]
+              ntAnd [36:20]
+                ntNot [36:8]
+                  ntExpressions [36:13]
+                    ntExpression [36:13]
+                      ntEqual [36:15]
+                        ntIdentifier [36:13] anName=X
+                        ntIdentifier [36:17] anName=Y
+                ntExpressions [36:25]
+                  ntExpression [36:25]
+                    ntNotEqual [36:27]
+                      ntIdentifier [36:25] anName=Y
+                      ntIdentifier [36:30] anName=Z
+        ntAssign [37:3]
+          ntLHS [37:3]
+            ntIdentifier [37:3] anName=R
+          ntRHS [37:8]
+            ntExpression [37:8]
+              ntAs [37:19]
+                ntCall [37:8]
+                  ntIdentifier [37:8] anName=Integer
+                  ntExpressions [37:16]
+                    ntExpression [37:16]
+                      ntIdentifier [37:16] anName=X
+                ntIdentifier [37:22] anName=TObject
+        ntAssign [38:3]
+          ntLHS [38:3]
+            ntIdentifier [38:3] anName=R
+          ntRHS [38:8]
+            ntExpression [38:8]
+              ntAddr [38:8]
+                ntIdentifier [38:9] anName=X
+        ntAssign [39:3]
+          ntLHS [39:3]
+            ntIdentifier [39:3] anName=R
+          ntRHS [39:8]
+            ntExpression [39:8]
+              ntDeref [39:9]
+                ntIdentifier [39:8] anName=P
+        ntAssign [40:3]
+          ntLHS [40:3]
+            ntIdentifier [40:3] anName=R
+          ntRHS [40:8]
+            ntExpression [40:8]
+              ntDot [40:22]
+                ntGeneric [40:8]
+                  ntIdentifier [40:8] anName=TList
+                  ntTypeArgs [40:14]
+                    ntType [40:14] anName=Integer
+                ntIdentifier [40:23] anName=Create
+        ntWith [41:3]
+          ntExpressions [41:8]
+            ntExpression [41:8]
+              ntIdentifier [41:8] anName=Obj
+          ntAssign [41:15]
+            ntLHS [41:15]
+              ntIdentifier [41:15] anName=Name
+            ntRHS [41:23]
+              ntExpression [41:23]
+                ntLiteral [41:26] value="x" anType=string
+        ntInherited [42:3]
+          ntCall [42:13]
+            ntCall [42:13]
+              ntIdentifier [42:13] anName=Create
+              ntExpressions [42:20]
+                ntExpression [42:20]
+                  ntLiteral [42:20] anType=nil
+        ntInherited [43:3]
+        ntAssign [44:3]
+          ntLHS [44:3]
+            ntIdentifier [44:3] anName=Result
+          ntRHS [44:13]
+            ntExpression [44:13]
+              ntIdentifier [44:13] anName=R
+  ntInitialization [46:1..48:1]
+    ntStatements [47:3..48:1]
+      ntCall [47:3]
+        ntCall [47:3]
+          ntIdentifier [47:3] anName=Calc
+          ntExpressions [47:8]
+            ntExpression [47:8]
+              ntLiteral [47:8] value="1" anType=numeric
+            ntExpression [47:11]
+              ntLiteral [47:11] value="2" anType=numeric
+  ntFinalization [48:1..49:1]
+    ntStatements [49:1..49:1]
+--- comments (0) ---

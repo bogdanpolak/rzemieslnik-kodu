@@ -1,0 +1,24 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [2:1..3:1]
+  ntImplementation [3:1..16:1]
+    ntMethod [4:1..16:1] anName=Test anKind=procedure
+      ntStatements [5:1..15:4]
+        ntIf [6:3]
+          ntExpression [6:6]
+            ntGreater [6:8]
+              ntIdentifier [6:6] anName=A
+              ntLiteral [6:10] value="10" anType=numeric
+          ntThen [6:13]
+            ntStatements [7:3..13:3]
+              ntCall [8:5]
+                ntIdentifier [8:5] anName=DoSomething
+              ntIf [10:5]
+                ntExpression [10:8]
+                  ntIdentifier [10:8] anName=B
+                ntThen [10:10]
+                  ntCall [11:7]
+                    ntIdentifier [11:7] anName=DoOtherThing
+          ntElse [13:3]
+            ntCall [14:5]
+              ntIdentifier [14:5] anName=DoFallback
+--- comments (0) ---

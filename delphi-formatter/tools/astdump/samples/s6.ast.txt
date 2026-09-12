@@ -1,0 +1,13 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [2:1..8:1]
+    ntTypeSection [3:1]
+      ntTypeDecl [4:3..7:6] anName=TPoint
+        ntType [4:12] anType=record
+          ntField [5:5]
+            ntName [5:5] value="X"
+            ntType [5:8] anName=Integer
+          ntField [6:5]
+            ntName [6:5] value="Y"
+            ntType [6:8] anName=Integer
+  ntImplementation [8:1..9:1]
+--- comments (0) ---
