@@ -1,0 +1,163 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [3:1..30:1]
+    ntUses [6:1..13:1]
+      ntUnit [7:3] anName=System.SysUtils
+    ntConstants [13:1]
+      ntConstant [14:3]
+        ntName [14:3] value="Mode"
+        ntValue [14:10]
+          ntExpression [14:10]
+            ntLiteral [14:19] value="Release" anType=string
+    ntTypeSection [20:1]
+      ntTypeDecl [21:3..28:6] anName=TFoo
+        ntTypeParams [21:7]
+          ntTypeParam [21:8]
+            ntType [21:8] anName=T
+            ntConstraints [21:11]
+              ntClassConstraint [21:11]
+        ntType [21:20] anType=class
+          ntType [21:26] anName=TObject
+          ntStrictPrivate [22:10] anVisibility=true
+            ntField [23:5]
+              ntName [23:5] value="FList"
+              ntType [23:12] anName=TList
+                ntTypeArgs [23:18]
+                  ntType [23:18] anName=T
+          ntPublic [24:3] anVisibility=true
+            ntMethod [25:5..26:5] anClass=true anKind=function anName=Make anOverload=true anInline=true
+              ntParameters [25:24]
+                ntParameter [25:31] anKind=const
+                  ntName [25:31] value="A"
+                  ntType [25:34] anName=T
+                ntParameter [25:41] anKind=var
+                  ntName [25:41] value="B"
+                  ntType [25:44] anName=Integer
+                ntParameter [25:57] anKind=out
+                  ntName [25:57] value="C"
+                  ntType [25:60] anName=string
+              ntReturnType [25:69]
+                ntType [25:69] anName=TFoo
+                  ntTypeArgs [25:74]
+                    ntType [25:74] anName=T
+            ntMethod [26:5..27:5] anKind=procedure anName=Run anMethodBinding=virtual anAbstract=true
+            ntProperty [27:5] anName=Count
+              ntType [27:21] anName=Integer
+              ntRead [27:29]
+                ntIdentifier [27:34] anName=GetCount
+              ntWrite [27:43]
+                ntIdentifier [27:49] anName=SetCount
+              ntDefault [27:58]
+                ntExpression [27:66]
+                  ntLiteral [27:66] value="0" anType=numeric
+  ntImplementation [30:1..63:1]
+    ntMethod [32:1..63:1] anName=Loop anKind=procedure anCallingConvention=stdcall
+      ntVariables [33:1]
+        ntVariable [34:3]
+          ntName [34:3] value="I"
+          ntType [34:6] anName=Integer
+        ntVariable [35:3]
+          ntName [35:3] value="L"
+          ntType [35:6] anName=TList
+            ntTypeArgs [35:12]
+              ntType [35:12] anName=Integer
+      ntStatements [36:1..61:4]
+        ntFor [37:3]
+          ntIdentifier [37:7] anName=I
+          ntFrom [37:12]
+            ntExpression [37:12]
+              ntLiteral [37:12] value="0" anType=numeric
+          ntTo [37:14]
+            ntExpression [37:17]
+              ntLiteral [37:17] value="10" anType=numeric
+          ntCall [38:5]
+            ntCall [38:5]
+              ntIdentifier [38:5] anName=Writeln
+              ntExpressions [38:13]
+                ntExpression [38:13]
+                  ntIdentifier [38:13] anName=I
+        ntTry [39:3]
+          ntStatements [40:5..46:3]
+            ntAssign [40:5]
+              ntLHS [40:5]
+                ntIdentifier [40:5] anName=L
+              ntRHS [40:10]
+                ntExpression [40:10]
+                  ntDot [40:24]
+                    ntGeneric [40:10]
+                      ntIdentifier [40:10] anName=TList
+                      ntTypeArgs [40:16]
+                        ntType [40:16] anName=Integer
+                    ntIdentifier [40:25] anName=Create
+            ntTry [41:5]
+              ntStatements [42:7..43:5]
+                ntCall [42:7]
+                  ntCall [42:7]
+                    ntDot [42:8]
+                      ntIdentifier [42:7] anName=L
+                      ntIdentifier [42:9] anName=Add
+                    ntExpressions [42:13]
+                      ntExpression [42:13]
+                        ntLiteral [42:13] value="1" anType=numeric
+              ntFinally [44:7]
+                ntStatements [44:7..45:5]
+                  ntCall [44:7]
+                    ntDot [44:8]
+                      ntIdentifier [44:7] anName=L
+                      ntIdentifier [44:9] anName=Free
+          ntExcept [47:5]
+            ntExceptionHandler [47:5]
+              ntVariable [47:8]
+                ntName [47:8] value="E"
+                ntType [47:11] anName=Exception
+              ntRaise [48:7]
+        ntCase [50:3]
+          ntExpression [50:8]
+            ntIdentifier [50:8] anName=I
+          ntCaseSelector [51:5]
+            ntCaseLabels [51:5]
+              ntCaseLabel [51:5]
+                ntExpression [51:5]
+                  ntLiteral [51:5] value="1" anType=numeric
+            ntCall [51:8]
+              ntIdentifier [51:8] anName=Exit
+          ntCaseSelector [52:5]
+            ntCaseLabels [52:5]
+              ntCaseLabel [52:5]
+                ntExpression [52:5]
+                  ntLiteral [52:5] value="2" anType=numeric
+              ntCaseLabel [52:8]
+                ntExpression [52:8]
+                  ntLiteral [52:8] value="3" anType=numeric
+            ntCall [52:11]
+              ntIdentifier [52:11] anName=Break
+          ntCaseElse [53:3]
+            ntStatements [54:5..55:3]
+              ntCall [54:5]
+                ntIdentifier [54:5] anName=Continue
+        ntWhile [56:3]
+          ntExpression [56:9]
+            ntGreater [56:11]
+              ntIdentifier [56:9] anName=I
+              ntLiteral [56:13] value="0" anType=numeric
+          ntCall [57:5]
+            ntCall [57:5]
+              ntIdentifier [57:5] anName=Dec
+              ntExpressions [57:9]
+                ntExpression [57:9]
+                  ntIdentifier [57:9] anName=I
+        ntRepeat [58:3]
+          ntStatements [59:5..60:3]
+            ntCall [59:5]
+              ntCall [59:5]
+                ntIdentifier [59:5] anName=Inc
+                ntExpressions [59:9]
+                  ntExpression [59:9]
+                    ntIdentifier [59:9] anName=I
+          ntExpression [60:9]
+            ntEqual [60:11]
+              ntIdentifier [60:9] anName=I
+              ntLiteral [60:13] value="5" anType=numeric
+--- comments (3) ---
+ntSlashesComment [1:16] " trailing comment"
+ntBorComment [5:1] " block comment "
+ntAnsiComment [7:20] " ansi comment "

@@ -1,0 +1,12 @@
+ntUnit [1:1] anName=P
+  ntUses [3:1..6:1]
+    ntUnit [4:3] anName=SysUtils
+    ntUnit [5:3] anName=Foo anPath=Foo.pas
+  ntStatements [6:1..8:4]
+    ntCall [7:3]
+      ntCall [7:3]
+        ntIdentifier [7:3] anName=Writeln
+        ntExpressions [7:11]
+          ntExpression [7:11]
+            ntLiteral [7:15] value="hi" anType=string
+--- comments (0) ---

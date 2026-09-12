@@ -1,0 +1,141 @@
+ntUnit [1:1] anName=U10
+  ntInterface [2:1..29:1]
+    ntTypeSection [3:1]
+      ntAttributes [4:3]
+        ntAttribute [4:4]
+          ntName [4:4] value="Weak"
+      ntTypeDecl [5:3..5:49] anName=TNotify
+        ntType [5:13] anName=procedure
+          ntParameters [5:22]
+            ntParameter [5:23]
+              ntName [5:23] value="Sender"
+              ntType [5:31] anName=TObject
+      ntTypeDecl [6:3..6:38] anName=TFn
+        ntType [6:9] anName=function
+          ntParameters [6:17]
+            ntParameter [6:18]
+              ntName [6:18] value="X"
+              ntType [6:21] anName=Integer
+          ntReturnType [6:31]
+            ntType [6:31] anName=Boolean
+      ntTypeDecl [7:3..7:40] anName=TRef
+        ntReturnType [7:33]
+          ntType [7:33] anName=Integer
+      ntTypeDecl [8:3..9:6] anName=TSealed
+        ntType [8:13] anType=class
+          ntType [8:26] anName=TObject
+      ntTypeDecl [10:3..11:6] anName=TAbs
+        ntType [10:10] anType=class
+      ntTypeDecl [12:3..17:6] anName=TPacked
+        ntType [12:20] anType=record
+          ntField [13:5]
+            ntName [13:5] value="A"
+            ntType [13:8] anName=Byte
+          ntType [14:16] anName=Integer
+          ntExpression [15:7]
+            ntLiteral [15:7] value="0" anType=numeric
+          ntName [15:11] value="I"
+          ntType [15:14] anName=Integer
+          ntExpression [16:7]
+            ntLiteral [16:7] value="1" anType=numeric
+          ntName [16:11] value="S"
+          ntType [16:14] anName=Single
+      ntTypeDecl [18:3..26:6] anName=TCV
+        ntType [18:9] anType=class anClass=true
+          ntPublic [19:3] anVisibility=true
+            ntField [20:15]
+              ntName [20:15] value="Count"
+              ntType [20:22] anName=Integer
+            ntConstant [21:11]
+              ntName [21:11] value="Max"
+              ntValue [21:17]
+                ntExpression [21:17]
+                  ntLiteral [21:17] value="10" anType=numeric
+            ntMethod [22:5..23:5] anClass=true anKind=procedure anName=Init
+            ntMethod [23:5..24:5] anKind=procedure anName=Old
+            ntProperty [24:5] anName=Items
+              ntParameters [24:19]
+                ntParameter [24:20]
+                  ntName [24:20] value="Index"
+                  ntType [24:27] anName=Integer
+              ntType [24:37] anName=string
+              ntRead [24:44]
+                ntIdentifier [24:49] anName=GetItem
+              ntWrite [24:57]
+                ntIdentifier [24:63] anName=SetItem
+              ntDefault [24:72]
+            ntProperty [25:5] anName=Name
+              ntType [25:20] anName=string
+              ntIndex [25:27]
+                ntExpression [25:33]
+                  ntLiteral [25:33] value="1" anType=numeric
+              ntRead [25:35]
+                ntIdentifier [25:40] anName=GetName
+    ntConstants [27:1]
+      ntResourceString [28:3]
+        ntName [28:3] value="SMsg"
+        ntValue [28:10]
+          ntLiteral [28:17] value="Hello" anType=string
+  ntImplementation [29:1..56:1]
+    ntMethod [30:1..54:1] anName=Outer anKind=procedure
+      ntLabel [32:3] value="Done"
+      ntMethod [33:3..36:1] anName=Inner anKind=procedure
+        ntStatements [34:3..35:6]
+      ntVariables [36:1]
+        ntVariable [37:3]
+          ntName [37:3] value="X"
+          ntType [37:6] anName=string
+      ntStatements [38:1..53:4]
+        ntAssign [42:3]
+          ntLHS [42:3]
+            ntIdentifier [42:3] anName=X
+          ntRHS [42:8]
+            ntExpression [42:8]
+              ntLiteral [42:13] value="#13" anType=string
+        ntAssign [43:3]
+          ntLHS [43:3]
+            ntIdentifier [43:3] anName=X
+          ntRHS [43:8]
+            ntExpression [43:8]
+              ntLiteral [43:11] value="#13" anType=string
+        ntAssign [44:3]
+          ntLHS [44:3]
+            ntIdentifier [44:3] anName=X
+          ntRHS [44:8]
+            ntExpression [44:8]
+              ntLiteral [44:17] value="a#13b" anType=string
+        ntAssign [45:3]
+          ntLHS [45:3]
+            ntIdentifier [45:3] anName=X
+          ntRHS [45:8]
+            ntExpression [45:8]
+              ntLiteral [45:10] value="" anType=string
+        ntVariables [47:3]
+          ntVariable [47:7]
+            ntName [47:7] value="Y"
+          ntAssign [0:0]
+            ntExpression [47:12]
+              ntLiteral [47:12] value="5" anType=numeric
+        ntVariables [48:3]
+          ntVariable [48:7]
+            ntName [48:7] value="Z"
+            ntType [48:10] anName=Integer
+        ntIf [50:3]
+          ntExpression [50:6]
+            ntEqual [50:8]
+              ntIdentifier [50:6] anName=Y
+              ntLiteral [50:10] value="5" anType=numeric
+          ntThen [50:12]
+            ntCall [50:17]
+              ntGoto [50:17]
+                ntLabel [50:22] value="Done"
+        ntCall [52:3]
+          ntCall [52:3]
+            ntIdentifier [52:3] anName=Exit
+            ntExpressions [52:8]
+              ntExpression [52:8]
+                ntIdentifier [52:8] anName=X
+    ntExports [54:1]
+      ntElement [55:3] anName=Outer
+        ntLiteral [55:22] value="Outer2" anType=string
+--- comments (0) ---

@@ -13,7 +13,9 @@ uses
   DUnitX.Loggers.Console,
   {$ENDIF }
   DUnitX.TestFramework,
-  Tests.Sample in 'Tests.Sample.pas';
+  Tests.Sample in 'Tests.Sample.pas',
+  Tests.Formatter.Golden in 'Tests.Formatter.Golden.pas',
+  Tests.Formatter in 'Tests.Formatter.pas';
 
 // -------------------------
 

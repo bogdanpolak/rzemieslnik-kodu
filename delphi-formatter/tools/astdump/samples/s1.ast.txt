@@ -1,0 +1,4 @@
+ntUnit [1:1] anName=TestUnit
+  ntInterface [3:1..5:1]
+  ntImplementation [5:1..7:1]
+--- comments (0) ---
