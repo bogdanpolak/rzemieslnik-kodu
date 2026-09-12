@@ -50,4 +50,22 @@ Run the unit tests with:
 .\bin\dfmt_dunitx.exe
 ```
 
-To validate tests analyze Monopoly.Tests.exe stdout output
+To validate tests analyze dfmt_dunitx.exe stdout output.
+
+Golden test cases live in `delphi-formatter/tests/golden/<case>.in.pas` / `<case>.out.pas`
+(loaded at runtime relative to the executable, searching upwards for the folder).
+
+## Golden runner without DUnitX - dfmt_golden
+
+Runs the same golden cases from a plain console program (Delphi or Free Pascal):
+
+```bat
+dcc32 -NSSystem -E".\bin" -NU".\bin" -U".\delphi-formatter\src;.\delphi-formatter\tests;.\delphi-ast" -Q .\delphi-formatter\tests\dfmt_golden.dpr
+.\bin\dfmt_golden.exe --coverage
+```
+
+## Formatter documentation
+
+- `delphi-formatter/docs/01-analiza-delphiast.md` - real DelphiAST API/AST structure analysis.
+- `delphi-formatter/docs/02-architektura-formattera.md` - formatter architecture, limitations.
+- `delphi-formatter/tools/astdump/` - AST dump tool with sample inputs and their dumps.
