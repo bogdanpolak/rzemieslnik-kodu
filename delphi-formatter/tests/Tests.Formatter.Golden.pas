@@ -144,8 +144,9 @@ begin
         FirstDifference(Actual, Expected) + ')' + sLineBreak +
         '--- actual ---' + sLineBreak + Actual + '--- end ---' + sLineBreak;
     end;
-    if TDelphiCodeFormatter.TokenFingerprint(Input) <>
-      TDelphiCodeFormatter.TokenFingerprint(Actual) then
+    var fingerprintInput := TDelphiCodeFormatter.TokenFingerprint(NormalizeLineEndings(Input));
+    var fingerprintOutput := TDelphiCodeFormatter.TokenFingerprint(Actual);
+    if fingerprintInput <> fingerprintOutput then
     begin
       Result.Passed := False;
       Result.Report := Result.Report + 'token invariant violated: formatter changed, ' +

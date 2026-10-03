@@ -15,7 +15,8 @@ uses
   DUnitX.TestFramework,
   Tests.Sample in 'Tests.Sample.pas',
   Tests.Formatter.Golden in 'Tests.Formatter.Golden.pas',
-  Tests.Formatter in 'Tests.Formatter.pas';
+  Tests.Formatter in 'Tests.Formatter.pas',
+  DelphiAST.Formatter.Engine in '..\src\DelphiAST.Formatter.Engine.pas';
 
 // -------------------------
 
