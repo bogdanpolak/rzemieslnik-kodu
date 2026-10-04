@@ -37,6 +37,7 @@ type
     [Test] procedure Test18_CompilerDirectives;
     [Test] procedure Test19_Generics;
     [Test] procedure Test20_Idempotency;
+    [Test] procedure Test21_InlineVars;
     [Test] procedure AllGoldenCasesHaveATest;
   end;
 
@@ -168,10 +169,15 @@ begin
   CheckGolden('20_idempotency');
 end;
 
+procedure TFormatterGoldenTests.Test21_InlineVars;
+begin
+  CheckGolden('21_inline_vars');
+end;
+
 { Guards against adding a golden pair without wiring a test method for it. }
 procedure TFormatterGoldenTests.AllGoldenCasesHaveATest;
 begin
-  Assert.AreEqual(20, Length(ListGoldenCases), 'number of golden cases');
+  Assert.AreEqual(21, Length(ListGoldenCases), 'number of golden cases');
 end;
 
 { TFormatterBehaviourTests }
